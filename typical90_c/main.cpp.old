@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int N, A[100000], B[100000];
+
+int get_cost(int start_i) {
+    int C[100000] = {0};
+    int max_C = -1, max_i = -1;
+
+    // Step-1: 頂点1からの最短経路を求める
+    C[start_i] = 0;
+    for (int i = 1; i <= N - 1; i++) {
+        C[B[i]] = C[A[i]] + 1;
+        if (C[B[i]] > max_C) {
+            max_C = C[B[i]];
+            max_i = B[i];
+        }
+    }
+
+    for (int i = 1; i <= N; i++)
+        cout << "C[" << i << "] = " << C[i] << endl;
+    cout << "max_C = " << max_C << ", max_i = " << max_i << endl;
+
+    return max_i;
+}
+
+void solve() {
+    get_cost(get_cost(0));
+}
+
+int main(void) {
+    cin >> N;
+
+    for (int i = 1; i <= N - 1; i++)
+        cin >> A[i] >> B[i];
+
+    solve();
+}

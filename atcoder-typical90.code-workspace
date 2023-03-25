@@ -1,6 +1,9 @@
 {
   "folders": [
     {
+      "path": "./typical90_c"
+    },
+    {
       "path": "./typical90_a"
     },
     {
@@ -23,6 +26,6 @@
     "python.formatting.autopep8Args": [
       "--max-line-length=120"
     ],
-    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.clang_format_style": "file"
   }
 }
