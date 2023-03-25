@@ -1,8 +1,11 @@
 CXX        = g++-9
-CXXFLAGS   = -g
+CXXFLAGS   = -std=gnu++17 -Wall -Wextra -O2
 LDFLAGS    = 
 ENTRYPOINT = main.cpp
 EXECUTABLE = $(basename $(ENTRYPOINT))
+
+$(EXECUTABLE): $(ENTRYPOINT)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
 
 all: clean build
 
@@ -15,8 +18,8 @@ build: $(EXECUTABLE)
 run: $(EXECUTABLE)
 	./$(EXECUTABLE)
 
-$(EXECUTABLE): $(ENTRYPOINT)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
+check: clean build
+	$(MAKE) -C ../tools check PROJECT_DIR=$(PWD)
 
-test:
+test: clean build
 	$(MAKE) -C ../tools test PROJECT_DIR=$(PWD)

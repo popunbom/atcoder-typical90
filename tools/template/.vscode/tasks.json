@@ -19,6 +19,22 @@
     },
     {
       "type": "shell",
+      "label": "make check",
+      "command": "/usr/bin/make",
+      "args": [
+        "check"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "test",
+      "detail": "Run 'make check'",
+    },
+    {
+      "type": "shell",
       "label": "make test",
       "command": "/usr/bin/make",
       "args": [
@@ -32,9 +48,6 @@
       ],
       "group": "test",
       "detail": "Run 'make test'",
-      "dependsOn": [
-        "make all"
-      ]
     },
   ]
 }
