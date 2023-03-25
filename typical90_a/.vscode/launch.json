@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug: main",
+      "program": "${workspaceFolder}/main",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stdio": "${workspaceFolder}/samples/input_1",
+      "preLaunchTask": "make all",
+    }
+  ]
+}
