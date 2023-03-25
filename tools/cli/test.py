@@ -40,11 +40,6 @@ def main(args: Args) -> int:
 
     all_ok = True
     for input_file, output_file in zip(input_files, output_files):
-        console.print("[bold]Run test: {!r} <-> {!r}".format(
-            path.relpath(input_file),
-            path.relpath(output_file),
-        ))
-
         expect: str = None
         with open(output_file) as f:
             expect = f.read().strip()
